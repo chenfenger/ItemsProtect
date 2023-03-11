@@ -1,0 +1,10 @@
+name: ItemsProtect
+version: 1.1.1
+author: Cordori
+main: cordori.itemsprotect.ItemsProtect
+
+commands:
+  itemsprotect:
+    permission: admin
+    aliases:
+      - ipt

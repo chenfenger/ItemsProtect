@@ -1,0 +1,60 @@
+# 调试选项，用于查看事件中一些相关信息，非必要勿开启
+debug: false
+
+# 消失物品存储模式，yaml或者MySQL
+saveMode: yaml
+MySQL:
+  host: localhost # 主机名
+  port: 3306 # 端口
+  username: 'root' # 用户名
+  password: 'root' # 密码
+  database: 'NoInvPut' # 数据库名
+
+# 消息前缀
+prefix: '&a[物品保护]'
+
+# 容器标题
+title: '&c物品保护'
+
+# 保护的物品，如果你在下面写了物品那就是该类型所有物品都会被保护，而不是只保护有lore的物品，不建议自己写，可能写错，请去游戏里用指令添加
+protectItems:
+  - diamond
+  - coal
+
+# 是否开启识别lore进行保护，如果开启了，只要包含lore，必定会被保护，即使对应保护类型为false也不会被破坏导致消失
+loreProtect: true
+
+#是否开启含特定lore的物品无法被丢弃
+loreDrop: true
+
+# 是否GUI只收集含特定lore的物品,true为是，false的话会收集含lore的物品与保护列表内的物品
+loreCollect: true
+
+# 识别的lore
+lore: '&b此物品已被保护'
+
+# 保护类型,防止掉落物被哪些东西破坏
+protectTypes:
+  # 消失保护，如果开启了，当保护列表或者特定lore物品消失时，例如被清理插件清理，你可以找回
+  VOID: true
+  # 掉落岩浆保护，注意，如果开启LAVA，你还需要开启FIRE_TICK才能让物品不被岩浆破坏，否则后续的火焰灼烧会破坏物品
+  LAVA: true
+  # 火焰灼烧保护
+  FIRE_TICK: true
+  # 实体爆炸保护，如爬行者
+  ENTITY_EXPLOSION: true
+  # 方块爆炸保护，如TNT
+  BLOCK_EXPLOSION: true
+  # 仙人掌保护
+  CONTACT: true
+
+# 事件消息
+messages:
+  reload: '&a插件重载成功！'
+  deny: '&c很抱歉，只有玩家才可以使用该指令'
+  addItem: '&b成功添加%item%至保护列表'
+  noneItem: '&c你的手上没有物品啦！'
+  drop: '&c你无法丢弃该物品！'
+  onProtect: '&c该物品已经被保护过了！'
+  open: '&c已打开物品寻回界面'
+  close: '&6已关闭物品寻回界面并更新items.yml'
